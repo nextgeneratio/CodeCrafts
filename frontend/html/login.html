@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="login-style.css" />
+  <title>Login</title>
+</head>
+<body>
+  <section class="login-card" role="region" aria-labelledby="login-title">
+    <h1 id="login-title" class="title">Sign in</h1>
+    <p class="subtitle">Use your username and password</p>
+
+    <form action="#" method="post" autocomplete="on" novalidate>
+      <div class="field">
+        <label for="username">TG_Number</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          inputmode="text"
+          autocomplete="username"
+          placeholder="TG/20XX/XXXX"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+     
+      <div class="actions">
+        <a href="/Home-page/">
+         <button class="btn" type="submit">Log in</button></a>
+        <p class="subtitle" style="margin:0; text-align:center;">
+          Don't have an account?
+          <a href="reg.html" class="link">Register</a>
+        </p>
+      </div>
+    </form>
+  </section>
+</body>
+</html>
