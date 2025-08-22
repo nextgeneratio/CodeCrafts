@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  
+  <link rel="stylesheet" href="reg.css" />
+</head>
+<body>
+  <section class="login-card" role="region" aria-labelledby="register-title">
+    <h1 id="register-title" class="title">Create your account</h1>
+    <p class="subtitle">Fill in your details to get started</p>
+
+    <form id="register-form" action="#" method="post" autocomplete="on" novalidate>
+      <!-- Username -->
+      <div class="field">
+        <label for="reg-username">TG_Number</label>
+        <input
+          id="reg-username"
+          name="username"
+          type="text"
+          inputmode="text"
+          autocomplete="username"
+          placeholder="TG/20XX/XXXX"
+          required
+        />
+      </div>
+
+      <!-- Email with inline Verify button -->
+      <div class="field">
+        <label for="reg-email">Email</label>
+        <div class="inline-group">
+          <input
+            id="reg-email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+          />
+          <button class="btn verify" type="button" aria-label="Verify email">
+            Verify
+          </button>
+        </div>
+        <small id="email-help" class="help" aria-live="polite"></small>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label for="reg-password">Password</label>
+        <input
+          id="reg-password"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          placeholder="Create a password"
+          required
+          minlength="6"
+        />
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="field">
+        <label for="reg-confirm">Confirm Password</label>
+        <input
+          id="reg-confirm"
+          name="confirm_password"
+          type="password"
+          autocomplete="new-password"
+          placeholder="Re-enter your password"
+          required
+          minlength="6"
+        />
+        <small id="pw-help" class="help" aria-live="polite"></small>
+      </div>
+
+      <!-- Submit -->
+      <div class="actions">
+        <button id="register-btn" class="btn" type="submit">Register</button>
+        <p class="subtitle" style="margin:0; text-align:center;">
+          Already have an account?
+          <a href="login.html" class="link">Log in</a>
+        </p>
+      </div>
+    </form>
+  </section>
+
+  <!-- Minimal client-side behavior: email verify + password match -->
+  <script src="reg.js">
+  </script>
+</body>
+</html>

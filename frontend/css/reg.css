@@ -1,0 +1,159 @@
+/* ---------- Theme & sizing ---------- */
+:root {
+  --bg: #0f172a;          /* Slate 900 */
+  --card: #111827;        /* Gray 900 */
+  --text: #e5e7eb;        /* Gray 200 */
+  --muted: #9ca3af;       /* Gray 400 */
+  --accent: #ff4d00;      /* 🔥 Orange */
+  --accent-600: #e64500;  /* Darker orange */
+  --ring: rgba(255, 77, 0, 0.35); /* Orange glow */
+
+  --base-fs: clamp(14px, 0.9rem + 0.4vw, 18px);
+  --radius: 14px;
+  --gap: clamp(0.75rem, 0.8rem + 0.5vh, 1.15rem);
+  --pad: clamp(1rem, 1rem + 1.5vh + 1vw, 2rem);
+
+  /* Control paddings reused for inputs/buttons side-by-side */
+  --control-py: clamp(0.7rem, 0.6rem + 0.6vh, 0.95rem);
+  --control-px: clamp(0.9rem, 0.6rem + 1vw, 1.1rem);
+
+  color-scheme: light dark;
+}
+
+html { font-size: var(--base-fs); }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100dvh; /* dynamic viewport for mobile */
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(255,77,0,0.25), transparent 60%),
+    radial-gradient(1200px 800px at 110% 110%, rgba(255,128,64,0.25), transparent 60%),
+    var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  padding: 2vh 3vw;
+}
+
+/* ---------- Card ---------- */
+.login-card {
+  width: min(92vw, 28rem);
+  background: color-mix(in srgb, var(--card) 92%, black);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  display: grid;
+  gap: var(--gap);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+
+/* ---------- Typography ---------- */
+.title {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
+  text-align: center;
+  color: var(--accent); /* orange highlight */
+}
+
+.subtitle {
+  margin: -0.35rem 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Form ---------- */
+form { display: grid; gap: var(--gap); margin-top: 0.25rem; }
+.field { display: grid; gap: 0.4rem; }
+
+label {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--text) 80%, white);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: var(--control-py) var(--control-px);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+input::placeholder { color: rgba(229,231,235,0.6); }
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Inline email + Verify button */
+.inline-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(0.5rem, 0.5rem + 0.5vw, 0.9rem);
+  align-items: stretch;
+}
+
+/* Helper text */
+.help {
+  color: #fca5a5; /* red-300 */
+  font-size: 0.9rem;
+  min-height: 1.1em; /* reserve space to avoid layout shift */
+}
+
+/* ---------- Actions & Buttons ---------- */
+.actions { display: grid; gap: 0.75rem; margin-top: 0.25rem; }
+
+.btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  width: 100%;
+  padding: clamp(0.8rem, 0.7rem + 0.6vh, 1rem) 1rem;
+  background: linear-gradient(180deg, var(--accent), var(--accent-600));
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: transform 80ms ease, filter 150ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  box-shadow:
+    0 12px 24px rgba(255,77,0,0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn.verify {
+  padding: var(--control-py) var(--control-px);
+  white-space: nowrap;
+  border-radius: 10px;
+  width: auto; /* keeps it to content width in inline-group */
+}
+
+.btn:hover { filter: brightness(1.05); }
+.btn:active { transform: translateY(1px) scale(0.997); }
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ---------- Motion preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn, input { transition: none; }
+}
