@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <p><i class="fas fa-shipping-fast"></i> Free delivery for orders over Rs 500 | 15-30 min delivery time</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="filter-section-top">
+        <div class="container">
+            <div class="filter-content">
+                <div class="filter-group">
+                    <h4>Filter Menu</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" value="breakfast" checked>
+                            <span>Breakfast</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="lunch" checked>
+                            <span>Lunch</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="dinner" checked>
+                            <span>Dinner</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="snacks" checked>
+                            <span>Snacks</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="beverages" checked>
+                            <span>Beverages</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="price-range">
+                        <input type="range" id="priceRange" min="0" max="1000" value="1000">
+                        <div class="price-labels">
+                            <span>Rs 0</span>
+                            <span>Rs 1000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Product Grid -->
+            <section class="product-section">
+                <div class="section-header">
+                    <h2>Today's Menu</h2>
+                    <p>Fresh and delicious meals prepared daily</p>
+                </div>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="modalImage" src="" alt="Product">
+                    </div>
+                    <div class="image-thumbnails">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop" alt="Thumbnail 1" class="thumbnail active">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&brightness=0.8" alt="Thumbnail 2" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&brightness=1.2" alt="Thumbnail 3" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&contrast=1.2" alt="Thumbnail 4" class="thumbnail">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2 id="modalTitle">Product Name</h2>
+                    <div class="price" id="modalPrice">Rs 0</div>
+                    <p id="modalDescription">Product description will appear here.</p>
+                    
+                    <div class="product-features">
+                        <h4>Key Features:</h4>
+                        <ul id="modalFeatures">
+                            <li>Fresh ingredients</li>
+                            <li>Made to order</li>
+                            <li>Healthy options available</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="sizeSelect">Portion Size:</label>
+                            <select id="sizeSelect">
+                                <option value="">Choose an option</option>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <div class="quantity-controls">
+                                <button type="button" class="qty-btn" id="decreaseQty">-</button>
+                                <span id="quantity">1</span>
+                                <button type="button" class="qty-btn" id="increaseQty">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="buyNowBtn">
+                            <i class="fas fa-shopping-bag"></i> BUY NOW
+                        </button>
+                        <button class="btn btn-secondary" id="addToWishlistBtn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <p><strong>SKU:</strong> <span id="modalSku">-</span></p>
+                        <p><strong>Category:</strong> <span id="modalCategory">-</span></p>
+                        <p><strong>Tags:</strong> <span id="modalTags">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
