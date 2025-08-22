@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Canteen System</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🍽️</div>
+                    <h2>Smart Canteen</h2>
+                </div>
+            </div>
+            
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="User Avatar" id="sidebar-avatar">
+                </div>
+                <div class="user-info">
+                    <h3 id="sidebar-name">John Doe</h3>
+                    <p id="sidebar-email">john.doe@example.com</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <button class="nav-button active" data-page="profile">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Edit Profile</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-page="Menu">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Menu</span>
+                        </button>
+                        <button class="nav-button" data-page="order">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5H2M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4"/>
+                            </svg>
+                            <span>Order Food</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-page="feedback">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Feedback</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logout-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16,17 21,12 16,7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Edit Profile Page -->
+            <div class="page active" id="profile-page">
+                <div class="page-header">
+                    <h1><center>Edit Profile</center></h1>
+                
+                     <div class="profile-section">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-container">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face" alt="Profile Picture" id="profile-avatar" >
+                            <button class="avatar-change-btn" id="change-avatar-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                    <circle cx="12" cy="13" r="4"/>
+                                </svg>
+                                Change Photo
+                            </button>
+                        </div>
+                    </div>
+                </div><br>
+
+    
+                 <form class="profile-form" id="profile-form">
+                    <div class="form-row">
+                       <div class="form-group">
+                            <label for="stu_name">Full Name</label>
+                            <input type="text" id="stu_name" name="stu_name" value="John Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                           <label for="email_address">Email Address</label>
+                           <input type="email" id="email_address" name="email_address" value="john.doe@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                          <label for="stu_id">Student ID</label>
+                          <input type="text" id="stu_id" name="stu_id" value="STU12345">
+                    </div>
+
+                   <div class="form-row">
+                       <div class="form-group">
+                          <label for="contact_no">Phone Number</label>
+                          <input type="tel" id="contact_no" name="contact_no" value="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label for="card_details">Card Details</label>
+                          <input type="text" id="card_details" name="card_details" value="1234-5678-9012-3456">
+                    </div>
+
+                    <div class="form-group">
+                          <label for="stu_password">Password</label>
+                          <input type="password" id="stu_password" name="stu_password" required>
+                    </div>
+
+                    <div class="form-actions">
+                          <button type="button" class="btn-secondary" id="cancel-profile-btn">Cancel</button>
+                        <button type="submit" class="btn-primary" id="save-profile-btn">Save Changes</button>
+                    </div>
+             </form>
+
+            <!-- Order Food Page -->
+            <div class="page" id="order-page">
+               window.location.href = "order.html";
+            </div>
+
+            <!-- Feedback Page -->
+            <div class="page" id="feedback-page">
+                 window.location.href = "feedback.html";       
+                     
+            </div>
+        </main>
+    </div>
+
+    <script src="Profile.js"></script>
+</body>
+</html>
