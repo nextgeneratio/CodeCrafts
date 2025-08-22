@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="feedback.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Dining Feedback Form</title>
+    
+</head>
+<body>
+    <!-- Floating Food Decorations -->
+    <div class="floating-food">🍕</div>
+    <div class="floating-food">🍔</div>
+    <div class="floating-food">🍜</div>
+    <div class="floating-food">🍣</div>
+    <div class="floating-food">🥘</div>
+    <div class="floating-food">🍰</div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Campus Dining Feedback</h1>
+            <p>Help us improve your dining experience!</p>
+        </div>
+
+        <div class="form-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <form id="feedbackForm">
+                <!-- User Info Section -->
+                <div class="section active">
+                    <div class="section-header">
+                        <h3>👤 User Information (Optional)</h3>
+                        <span>▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Email or Phone</label>
+                            <input type="text" id="contact" class="form-control" placeholder="For follow-up (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select id="role" class="form-control">
+                                <option value="">Select your role</option>
+                                <option value="student">Student</option>
+                                <option value="staff">Staff</option>
+                                <option value="visitor">Visitor</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Rating Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>⭐ Experience Rating</h3>
+                        <span>▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="rating-group">
+                            <div class="rating-item">
+                                <div class="rating-label">
+                                    <span>🍛</span>
+                                    <span>Food Quality</span>
+                                </div>
+                                <div class="star-rating" data-rating="food-quality">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-label">
+                                    <span>🧼</span>
+                                    <span>Cleanliness</span>
+                                </div>
+                                <div class="star-rating" data-rating="cleanliness">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-label">
+                                    <span>😊</span>
+                                    <span>Staff Behavior</span>
+                                </div>
+                                <div class="star-rating" data-rating="staff-behavior">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-label">
+                                    <span>⏱️</span>
+                                    <span>Service Speed</span>
+                                </div>
+                                <div class="star-rating" data-rating="service-speed">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-label">
+                                    <span>🌟</span>
+                                    <span>Overall Satisfaction</span>
+                                </div>
+                                <div class="star-rating" data-rating="overall">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Feedback Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>🍽️ Menu Feedback</h3>
+                        <span>▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="favorite-dish">Favorite Dish</label>
+                            <input type="text" id="favorite-dish" class="form-control" placeholder="What dish did you enjoy the most?">
+                        </div>
+                        <div class="form-group">
+                            <label for="least-favorite-dish">Least Favorite Dish</label>
+                            <input type="text" id="least-favorite-dish" class="form-control" placeholder="What dish could be improved?">
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestions">Suggestions for New Items</label>
+                            <textarea id="suggestions" class="form-control" rows="4" placeholder="Any new dishes you'd like to see on the menu?"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facility & Environment Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>🏢 Facility & Environment</h3>
+                        <span>▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label>Seating Availability</label>
+                            <div class="emoji-slider" data-rating="seating">
+                                <span class="emoji-option" data-value="1">😞</span>
+                                <span class="emoji-option" data-value="2">😐</span>
+                                <span class="emoji-option" data-value="3">🙂</span>
+                                <span class="emoji-option" data-value="4">😊</span>
+                                <span class="emoji-option" data-value="5">😄</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Ambience</label>
+                            <div class="emoji-slider" data-rating="ambience">
+                                <span class="emoji-option" data-value="1">😞</span>
+                                <span class="emoji-option" data-value="2">😐</span>
+                                <span class="emoji-option" data-value="3">🙂</span>
+                                <span class="emoji-option" data-value="4">😊</span>
+                                <span class="emoji-option" data-value="5">😄</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Hygiene Standards</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hygiene-1" value="clean-tables">
+                                    <label for="hygiene-1">Clean Tables</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hygiene-2" value="clean-utensils">
+                                    <label for="hygiene-2">Clean Utensils</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hygiene-3" value="food-safety">
+                                    <label for="hygiene-3">Food Safety</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hygiene-4" value="staff-hygiene">
+                                    <label for="hygiene-4">Staff Hygiene</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Complaint Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>⚠️ Report an Issue</h3>
+                        <span>▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="issue-type">Type of Issue</label>
+                            <select id="issue-type" class="form-control">
+                                <option value="">Select issue type</option>
+                                <option value="food">Food Quality</option>
+                                <option value="staff">Staff Behavior</option>
+                                <option value="cleanliness">Cleanliness</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="issue-description">Description</label>
+                            <textarea id="issue-description" class="form-control" rows="4" placeholder="Please describe the issue in detail..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Photo (Optional)</label>
+                            <div class="file-upload" onclick="document.getElementById('photo-upload').click()">
+                                <input type="file" id="photo-upload" accept="image/*">
+                                <p>📷 Click to upload a photo</p>
+                                <small>Max size: 5MB</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestions Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>💡 Suggestions Box</h3>
+                        <span>▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="general-suggestions">Your Ideas & Feedback</label>
+                            <textarea id="general-suggestions" class="form-control" rows="5" placeholder="Share any ideas, improvements, or praise you have for our dining services..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div class="modal" id="thankYouModal">
+        <div class="modal-content">
+            <h2>🎉 Thank You!</h2>
+            <p>Your feedback has been submitted successfully. We appreciate your input and will use it to improve our services.</p>
+            <button class="btn btn-primary" id="closeModalBtn">Close</button>
+        </div>
+    </div>
+
+<script src="feedback.js"></script>
+</body>
+</html>

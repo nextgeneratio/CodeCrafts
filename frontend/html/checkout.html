@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Canteen Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <p><i class="fas fa-shipping-fast"></i> Free delivery for orders over Rs 500 | 15-30 min delivery time</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-container">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2><i class="fas fa-shopping-bag"></i> Order Summary</h2>
+                    <div class="order-details" id="orderDetails">
+                        <!-- Order details will be populated here -->
+                    </div>
+                    <div class="order-total">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">Rs 0</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Delivery Fee:</span>
+                            <span id="deliveryFee">Rs 0</span>
+                        </div>
+                        <div class="total-row final-total">
+                            <span>Total:</span>
+                            <span id="finalTotal">Rs 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Form -->
+                <div class="payment-form">
+                    <h2><i class="fas fa-credit-card"></i> Payment Details</h2>
+                    
+                    <form id="paymentForm">
+                        <!-- Card Number -->
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <div class="card-input-wrapper">
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                <div class="card-icons">
+                                    <i class="fab fa-cc-visa" id="visaIcon"></i>
+                                    <i class="fab fa-cc-mastercard" id="mastercardIcon"></i>
+                                </div>
+                            </div>
+                            <span class="error-message" id="cardNumberError"></span>
+                        </div>
+
+                        <!-- Card Details Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardHolder">Cardholder Name</label>
+                                <input type="text" id="cardHolder" placeholder="John Doe">
+                                <span class="error-message" id="cardHolderError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                                <span class="error-message" id="expiryError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="4">
+                                <span class="error-message" id="cvvError"></span>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Payment Button -->
+                        <button type="submit" class="btn btn-primary btn-pay" id="payButton">
+                            <i class="fas fa-lock"></i> Pay Securely
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrModal">
+        <div class="modal-content qr-modal">
+            <div class="qr-header">
+                <h2><i class="fas fa-check-circle"></i> Payment Successful!</h2>
+                <p>Your order has been confirmed. Please show this QR code to collect your order.</p>
+            </div>
+            <div class="qr-body">
+                <div class="qr-code-container">
+                    <div id="qrCode"></div>
+                    <div class="order-number">
+                        <strong>Order #:</strong> <span id="orderNumber"></span>
+                    </div>
+                </div>
+                <div class="order-info">
+                    <h4>Order Details:</h4>
+                    <div id="qrOrderDetails"></div>
+                </div>
+            </div>
+            <div class="qr-footer">
+                <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i> Back to Menu
+                </button>
+                <button class="btn btn-primary" onclick="printQR()">
+                    <i class="fas fa-print"></i> Print QR Code
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
