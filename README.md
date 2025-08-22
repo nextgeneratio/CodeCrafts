@@ -1,2 +1,0 @@
-# CodeCrafts
-Hacktrail Project
