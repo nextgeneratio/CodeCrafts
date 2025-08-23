@@ -1,4 +1,24 @@
 $(document).ready(function() {
+    // Mobile Navigation Toggle
+    $('.hamburger').click(function() {
+        $('.hamburger').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    $('.nav-link').click(function() {
+        $('.hamburger').removeClass('active');
+        $('.nav-menu').removeClass('active');
+    });
+
+    // Close mobile menu when clicking outside
+    $(document).click(function(e) {
+        if (!$(e.target).closest('.navbar').length) {
+            $('.hamburger').removeClass('active');
+            $('.nav-menu').removeClass('active');
+        }
+    });
+
     // Sample product data for canteen management system
     const products = [
         {
@@ -161,8 +181,6 @@ $(document).ready(function() {
             $(this).addClass('active');
             $('#modalImage').attr('src', $(this).attr('src'));
         });
-
-
     }
 
     // Open product modal
@@ -254,8 +272,6 @@ $(document).ready(function() {
         window.location.href = `checkout.html?order=${orderData}`;
     }
 
-
-
     // Filter products
     function filterProducts() {
         const selectedCategories = $('.filter-option input[type="checkbox"]:checked').map(function() {
@@ -272,8 +288,6 @@ $(document).ready(function() {
 
         loadProducts(filteredProducts);
     }
-
-
 
     // Show notification
     function showNotification(message) {
@@ -301,8 +315,6 @@ $(document).ready(function() {
             });
         }, 3000);
     }
-
-
 
     // Initialize the application
     init();

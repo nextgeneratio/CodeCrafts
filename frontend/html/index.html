@@ -1,144 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuickServer</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <!-- Example SVG logo (replace with your own SVG file or inline code) -->
-        <img src="L1.svg" alt="QuickServer Logo" />
-      </div>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Order</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search food..."
-        class="search-bar"
-        onkeyup="filterMenu()"
-      />
-      <div class="profile-pic">
-        <img src="p4.png" alt="Profile Picture" />
-      </div>
-    </header>
-    <div class="welcome-message">
-    <h1>Welcome to QuickServer</h1>
-    </div>
-    <main>
-      <h2>Today's Menu</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen Management System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/L1.svg" alt="QuickServer Logo" class="logo-img">
+                <span class="logo-text">QuickServer</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-utensils"></i> Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="Profile.html" class="nav-link">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="feedback.html" class="nav-link">
+                        <i class="fas fa-comment"></i> Feedback
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-      <div class="menu-grid" id="menuGrid">
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <p><i class="fas fa-shipping-fast"></i> Free delivery for orders over Rs 500 | 15-30 min delivery time</p>
+            </div>
         </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="filter-section-top">
+        <div class="container">
+            <div class="filter-content">
+                <div class="filter-group">
+                    <h4>Filter Menu</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" value="breakfast" checked>
+                            <span>Breakfast</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="lunch" checked>
+                            <span>Lunch</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="dinner" checked>
+                            <span>Dinner</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="snacks" checked>
+                            <span>Snacks</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="beverages" checked>
+                            <span>Beverages</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="price-range">
+                        <input type="range" id="priceRange" min="0" max="1000" value="1000">
+                        <div class="price-labels">
+                            <span>Rs 0</span>
+                            <span>Rs 1000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Product Grid -->
+            <section class="product-section">
+                <div class="section-header">
+                    <h2>Today's Menu</h2>
+                    <p>Fresh and delicious meals prepared daily</p>
+                </div>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </section>
         </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <div class="menu-item">
-          <img src="p1.jpeg" alt="Biryani" />
-          <h3>Biryani</h3>
-          <p>₹120</p>
-        </div>
-        <div class="menu-item">
-          <img src="p2.jpeg" alt="Noodles" />
-          <h3>Noodles</h3>
-          <p>₹60</p>
-        </div>
-        <!-- add more items here -->
-      </div>
     </main>
-  </body>
-  <script src="src.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>QuickServer</h3>
+                <p>Your trusted partner for delicious meals and excellent service. We provide fresh, quality food with quick delivery.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Menu</a></li>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Online Ordering</a></li>
+                    <li><a href="#">Fast Delivery</a></li>
+                    <li><a href="#">Catering</a></li>
+                    <li><a href="#">Special Events</a></li>
+                    <li><a href="#">Corporate Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, City Center</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@quickserver.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-10PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 QuickServer. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="modalImage" src="" alt="Product">
+                    </div>
+                    <div class="image-thumbnails">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop" alt="Thumbnail 1" class="thumbnail active">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&brightness=0.8" alt="Thumbnail 2" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&brightness=1.2" alt="Thumbnail 3" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&contrast=1.2" alt="Thumbnail 4" class="thumbnail">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2 id="modalTitle">Product Name</h2>
+                    <div class="price" id="modalPrice">Rs 0</div>
+                    <p id="modalDescription">Product description will appear here.</p>
+                    
+                    <div class="product-features">
+                        <h4>Key Features:</h4>
+                        <ul id="modalFeatures">
+                            <li>Fresh ingredients</li>
+                            <li>Made to order</li>
+                            <li>Healthy options available</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="sizeSelect">Portion Size:</label>
+                            <select id="sizeSelect">
+                                <option value="">Choose an option</option>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <div class="quantity-controls">
+                                <button type="button" class="qty-btn" id="decreaseQty">-</button>
+                                <span id="quantity">1</span>
+                                <button type="button" class="qty-btn" id="increaseQty">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="buyNowBtn">
+                            <i class="fas fa-shopping-bag"></i> BUY NOW
+                        </button>
+                        <button class="btn btn-secondary" id="addToWishlistBtn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <p><strong>SKU:</strong> <span id="modalSku">-</span></p>
+                        <p><strong>Category:</strong> <span id="modalCategory">-</span></p>
+                        <p><strong>Tags:</strong> <span id="modalTags">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
 </html>

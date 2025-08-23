@@ -95,6 +95,26 @@ class SmartCanteenApp {
     }
 
     bindEvents() {
+        // Mobile Navigation Toggle
+        $('.hamburger').click(function() {
+            $('.hamburger').toggleClass('active');
+            $('.nav-menu').toggleClass('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        $('.nav-link').click(function() {
+            $('.hamburger').removeClass('active');
+            $('.nav-menu').removeClass('active');
+        });
+
+        // Close mobile menu when clicking outside
+        $(document).click(function(e) {
+            if (!$(e.target).closest('.navbar').length) {
+                $('.hamburger').removeClass('active');
+                $('.nav-menu').removeClass('active');
+            }
+        });
+
         // Sidebar navigation
         const navButtons = document.querySelectorAll('.nav-button');
         navButtons.forEach(btn => {
@@ -195,6 +215,19 @@ class SmartCanteenApp {
 
     handleNavigation(e) {
         const page = e.currentTarget.dataset.page;
+        
+        // Handle special navigation for order page
+        if (page === 'order') {
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Handle special navigation for feedback page
+        if (page === 'feedback') {
+            window.location.href = 'feedback.html';
+            return;
+        }
+        
         this.showPage(page);
         
         // Update active nav button

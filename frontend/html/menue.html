@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/frontend/css/meanu.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickServe</title>
@@ -38,25 +39,7 @@
 
             <div class="menu-display">
                 <h2 class="form-title">Current Menu</h2>
-                <?php if (!empty($notification)) echo $notification; ?>
-                <div class="menu-grid">
-                    <?php if (count($menuItems) > 0): ?>
-                    <?php foreach ($menuItems as $item): ?>
-                    <div class="menu-item">
-                        <div class="item-image">
-                            <img src="<?php echo htmlspecialchars($item['image_path']); ?>"
-                                alt="<?php echo htmlspecialchars($item['name']); ?>">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><?php echo htmlspecialchars($item['name']); ?></h3>
-                            <p class="item-price">Rs <?php echo number_format($item['price'], 2); ?></p>
-                            <!-- You can add delete functionality here -->
-                        </div>
-                    </div>
-                    <?php endforeach; ?>
-                    <?php else: ?>
-                    <p>No menu items found.</p>
-                    <?php endif; ?>
+   
                 </div>
             </div>
         </div>
