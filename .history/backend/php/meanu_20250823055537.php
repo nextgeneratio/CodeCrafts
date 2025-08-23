@@ -1,10 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Database connection
-include '/var/www/html/conn.php';
+
 
 // Handle form submission
 $notification = "";
@@ -24,7 +20,7 @@ if (isset($_POST['addItem'])) {
             if (move_uploaded_file($_FILES["foodImage"]["tmp_name"], $targetFile)) {
                 $imagePath = $targetFile;
                 // Insert into DB
-                $stmt = $conn->prepare("INSERT INTO Menu (m_name, price, image) VALUES (?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO Menu (name, price, image_path) VALUES (?, ?, ?)");
                 $stmt->bind_param("sds", $foodName, $foodPrice, $imagePath);
                 if ($stmt->execute()) {
                     $notification = "<div class='notification success'>Item added successfully!</div>";

@@ -30,39 +30,43 @@
       </div>
     </header>
     <div class="welcome-message">
-      <h1>Welcome to QuickServer</h1>
+    <h1>Welcome to QuickServer</h1>
     </div>
     <main>
       <h2>Today's Menu</h2>
 
       <div class="menu-grid" id="menuGrid">
-        <!-- <?php
+<?php
 $servername = "localhost";
-$username = "workbench"; // change if needed
-$password = "mypassword";     // change if needed
-$dbname = "CodeCrafts";
+$username = "root"; // change if needed
+$password = "";     // change if needed
+$dbname = "code_craft";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
-if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
-        $sql = "SELECT name, price, image FROM menu"; $result =
-        $conn->query($sql); if ($result->num_rows > 0) { while($row =
-        $result->fetch_assoc()) { echo '
-        <div class="menu-item">
-          '; echo '<img src="' . htmlspecialchars($row["image"]) . '" alt="' .
-          htmlspecialchars($row["name"]) . '" />'; echo '
-          <h3>' . htmlspecialchars($row["name"]) . '</h3>
-          '; echo '
-          <p>₹' . htmlspecialchars($row["price"]) . '</p>
-          '; echo '
-        </div>
-        '; } } else { echo "
-        <p>No menu items found.</p>
-        "; } $conn->close(); ?>
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT name, price, image FROM menu";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo '<div class="menu-item">';
+        echo '<img src="' . htmlspecialchars($row["image"]) . '" alt="' . htmlspecialchars($row["name"]) . '" />';
+        echo '<h3>' . htmlspecialchars($row["name"]) . '</h3>';
+        echo '<p>₹' . htmlspecialchars($row["price"]) . '</p>';
+        echo '</div>';
+    }
+} else {
+    echo "<p>No menu items found.</p>";
+}
+$conn->close();
+?>
         <!-- add more items here -->
-         ?> -->
       </div>
     </main>
   </body>
