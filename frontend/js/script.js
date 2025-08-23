@@ -27,7 +27,7 @@ $(document).ready(function() {
             price: 450,
             description: "Aromatic basmati rice cooked with tender chicken pieces, aromatic spices, and herbs. Served with raita and pickle.",
             category: "lunch",
-            image: "https://images.unsplash.com/photo-1563379091339-03246963d4a9?w=400&h=300&fit=crop",
+            image: "https://i.pinimg.com/1200x/1a/59/f0/1a59f0e988c227075ce7a6e261f9f362.jpg",
             sku: "BIR001",
             tags: "Rice, Chicken, Spicy",
             features: ["Fresh ingredients", "Made to order", "Serves 1 person", "Includes raita"]
